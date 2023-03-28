@@ -4,8 +4,9 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        MonthlyReport mReport = new MonthlyReport();
-        YearlyReport yReport = new YearlyReport();
+        //MonthlyReport mReport = new MonthlyReport();
+       // YearlyReport yReport = new YearlyReport();
+        ManageData manageData = new ManageData();
         boolean isVetification = false;
 
         while (true) {
@@ -13,25 +14,28 @@ public class Main {
             String userInput = scanner.nextLine();
             System.out.println("Вы выбрали команду: " + userInput);
             if(userInput.equals("1")) {
-                mReport.getMonthData();
+                manageData.mReport.getMonthData();
             } else if(userInput.equals("2")) {
-                yReport.getYearData();
+                manageData.yReport.getYearData();
             } else if(userInput.equals("3")) {
-                if (new IsDataEmpty(mReport, yReport).isDataEmpty()) {
-                    if(isVetification = new Verifivation(mReport.sortedData, yReport.sortedData).check());
+                if (new IsDataEmpty(manageData.mReport, manageData.yReport).isDataEmpty()) {
+                    isVetification = new Verifivation(manageData.mReport.sortedData, manageData.yReport.sortedData).check();//вынес создание объекта
+                    if(isVetification); //вынес создание объекта
                     else System.out.println("В отчетах содержится ошибка");
                 }
             } else if(userInput.equals("4")) {
-                if (new IsDataEmpty(mReport).isMonthDataEmpty()) {
+                if (new IsDataEmpty(manageData.mReport).isMonthDataEmpty()) {
                     if(isVetification) {
-                        new PrintMonthData(mReport.sortedData).print();
-                    } else System.out.println("Выполните сверку отчетов!");
+                        System.out.println("Сверка отчетов не выполнена!");//теперь сверка отчетов не обязательна
+                    }
+                    new PrintMonthData(manageData.mReport.sortedData).print();
                 }
             } else if(userInput.equals("5")) {
-                if (new IsDataEmpty(yReport).isYearDataEmpty()) {
+                if (new IsDataEmpty(manageData.yReport).isYearDataEmpty()) {
                     if(isVetification) {
-                        new PrintYearData(yReport.sortedData).print();
-                    } else System.out.println("Выполните сверку отчетов!");
+                        System.out.println("Сверка отчетов не выполнена.");//теперь сверка отчетов не обязательна
+                    }
+                    new PrintYearData(manageData.yReport.sortedData).print();
                 }
             } else if(userInput.toLowerCase().equals("выход")) {
                 System.out.println("До новых встреч!");

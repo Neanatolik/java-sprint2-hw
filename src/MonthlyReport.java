@@ -4,13 +4,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MonthlyReport {
+
     HashMap<Integer, ArrayList<MonthData>> sortedData = new HashMap<>();
 
     void getMonthData () {
         for (int month = 1; month < 4; month++){
             ArrayList<MonthData> monthDataList = new ArrayList<>();
             String unsortedMonthlyData = readFileContents("resources/m.20210" + month + ".csv");
-            String[] lines = unsortedMonthlyData.split("\n?\r\n");
+            String[] lines = unsortedMonthlyData.split("\n?\r"); //заменил регулярное выражение
             for (int i = 1; i < lines.length; i++) {
                 String line = lines[i];
                 String[] data = line.split(","); //item_name,is_expense,quantity,sum_of_one
@@ -32,7 +33,7 @@ public class MonthlyReport {
             return Files.readString(Path.of(path));
         } catch (IOException e) {
             System.out.println("Невозможно прочитать файл с месячным отчётом. Возможно файл не находится в нужной директории.");
-            return null;
+            return ""; //заменил null
         }
     }
 }

@@ -16,8 +16,7 @@ public class PrintMonthData {
             String nameMaxExpense = "";
             String nameMaxIncome = "";
             for(MonthData MD: monthlyReport.get(I)) {
-                int multiplication = MD.quantity*MD.sum_of_one;
-                //System.out.println(MD.item_name + " " + MD.quantity + " " + MD.sum_of_one + " " + multiplication);
+                int multiplication = MD.quantity*MD.sum_of_one; //убрал неиспользуемый код
                 if(MD.is_expensive) {
                     if(multiplication > maxExpense) {maxExpense = multiplication; nameMaxExpense = MD.item_name;}
                 } else if(multiplication > maxIncome) {maxIncome = multiplication; nameMaxIncome = MD.item_name;}

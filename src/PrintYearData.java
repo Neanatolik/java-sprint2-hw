@@ -27,7 +27,7 @@ public class PrintYearData {
             System.out.println("Прибыль за месяц " + month + " " + profit);
         }
         System.out.println(sumIncomes + " - " + sumExpenses);
-        System.out.println("Средний расход за все месяцы: " + (double)sumExpenses/3);
-        System.out.println("Средний доход за все месяцы: " + (double)sumIncomes/3);
+        System.out.println("Средний расход за все месяцы: " + sumExpenses/3); //убрал double
+        System.out.println("Средний доход за все месяцы: " + sumIncomes/3);//убрал double
     }
 }
