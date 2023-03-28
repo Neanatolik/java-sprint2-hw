@@ -4,9 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        //MonthlyReport mReport = new MonthlyReport();
-       // YearlyReport yReport = new YearlyReport();
-        ManageData manageData = new ManageData();
+        ManageData manageData = new ManageData(); //создал новый класс для управляния данными
         boolean isVetification = false;
 
         while (true) {
