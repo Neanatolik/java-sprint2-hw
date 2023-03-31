@@ -1,5 +1,4 @@
 public class MonthData {
-    //item_name,is_expense,quantity,sum_of_one
     String item_name;
     boolean is_expensive;
     int quantity;

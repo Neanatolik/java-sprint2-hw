@@ -11,10 +11,10 @@ public class MonthlyReport {
         for (int month = 1; month < 4; month++){
             ArrayList<MonthData> monthDataList = new ArrayList<>();
             String unsortedMonthlyData = readFileContents("resources/m.20210" + month + ".csv");
-            String[] lines = unsortedMonthlyData.split("\n?\r"); //заменил регулярное выражение
+            String[] lines = unsortedMonthlyData.split("\r?\n"); //заменил регулярное выражение
             for (int i = 1; i < lines.length; i++) {
                 String line = lines[i];
-                String[] data = line.split(","); //item_name,is_expense,quantity,sum_of_one
+                String[] data = line.split(",");
                 String item_name = data[0];
                 boolean is_expense = Boolean.parseBoolean(data[1]);
                 int quantity = Integer.parseInt(data[2]);
@@ -33,7 +33,7 @@ public class MonthlyReport {
             return Files.readString(Path.of(path));
         } catch (IOException e) {
             System.out.println("Невозможно прочитать файл с месячным отчётом. Возможно файл не находится в нужной директории.");
-            return ""; //заменил null
+            return "";
         }
     }
 }

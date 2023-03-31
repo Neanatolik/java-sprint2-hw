@@ -11,7 +11,6 @@ public class YearlyReport {
         String [] lines = unsortedYearData.split("\r?\n");//заменил регулярное выражение
         for (int i = 1; i < lines.length; i++) {
             String line = lines[i];
-            System.out.println(line);
             String[] data = line.split(",");
             int month = Integer.parseInt(data[0]);
             int amount = Integer.parseInt(data[1]);
@@ -28,7 +27,7 @@ public class YearlyReport {
             return Files.readString(Path.of(path));
         } catch (IOException e) {
             System.out.println("Невозможно прочитать файл с месячным отчётом. Возможно файл не находится в нужной директории.");
-            return "";//заменил null
+            return "";
         }
     }
 }

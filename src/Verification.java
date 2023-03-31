@@ -1,11 +1,11 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Verifivation {
+public class Verification {
     public HashMap<Integer, ArrayList<MonthData>> monthlyReport;
     public ArrayList<YearData> yearlyReport;
 
-    public Verifivation(HashMap<Integer, ArrayList<MonthData>> monthlyReport, ArrayList<YearData> yearlyReport) {
+    public Verification(HashMap<Integer, ArrayList<MonthData>> monthlyReport, ArrayList<YearData> yearlyReport) {
         this.monthlyReport = monthlyReport;
         this.yearlyReport = yearlyReport;
     }
